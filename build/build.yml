@@ -4,9 +4,9 @@ objects:
 - apiVersion: image.openshift.io/v1
   kind: ImageStream
   metadata:
-    name: go-toolset-1.10-rhel7
+    name: go-toolset-rhel7
   spec:
-    dockerImageRepository: registry.access.redhat.com/devtools/go-toolset-1.10-rhel7
+    dockerImageRepository: registry.access.redhat.com/devtools/go-toolset-rhel7
 - apiVersion: image.openshift.io/v1
   kind: ImageStream
   metadata:
@@ -39,12 +39,12 @@ objects:
       sourceStrategy:
         env:
         - name: IMPORT_URL
-          value: github.com/redhat-cop/cert-operator
+          value: github.com/mathianasj/cert-operator
         - name: BINARY_NAME
           value: cert-operator
         from:
           kind: ImageStreamTag
-          name: go-toolset-1.10-rhel7:latest
+          name: go-toolset-rhel7:latest
           type: Source
     triggers:
     - type: ConfigChange
@@ -52,6 +52,6 @@ objects:
       type: ImageChange
 parameters:
 - name: SOURCE_CODE_URL
-  value: https://github.com/redhat-cop/cert-operator
+  value: https://github.com/mathianasj/cert-operator.git
 - name: SOURCE_CODE_REF
-  value: master
+  value: patch-1

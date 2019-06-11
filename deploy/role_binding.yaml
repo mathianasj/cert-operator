@@ -7,4 +7,4 @@ roleRef:
   name: cert-operator-role
 subjects:
 - kind: ServiceAccount
-  name: default
+  name: cert-operator
